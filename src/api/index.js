@@ -12,13 +12,13 @@ export const registerAPI = ({ username, password, repassword }) => {
   })
 }
 
-export const loginAPI = () => {
+export const loginAPI = ({ username, password }) => {
   return request({
     url: '/api/login',
     method: 'post',
     data: {
-      username: 'zhang',
-      password: '123456'
+      username,
+      password
     }
   })
 }
