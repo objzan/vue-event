@@ -5,13 +5,14 @@ import store from '@/store'
 const Register = () => import('@/views/register')
 const Login = () => import('@/views/login')
 const Layout = () => import('@/views/layout')
+const Home = () => import('@/views/home')
 
 Vue.use(VueRouter)
 
 const routes = [
   { path: '/register', component: Register },
   { path: '/login', component: Login },
-  { path: '/', component: Layout }
+  { path: '/', component: Layout, redirect: '/home', children: [{ path: 'home', component: Home }] }
 ]
 
 const router = new VueRouter({
