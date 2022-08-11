@@ -6,13 +6,26 @@ const Register = () => import('@/views/register')
 const Login = () => import('@/views/login')
 const Layout = () => import('@/views/layout')
 const Home = () => import('@/views/home')
+const UserInfo = () => import('@/views/user/userInfo.vue')
+const userAvatar = () => import('@/views/user/userAvatar.vue')
+const userPwd = () => import('@/views/user/userPwd.vue')
 
 Vue.use(VueRouter)
 
 const routes = [
   { path: '/register', component: Register },
   { path: '/login', component: Login },
-  { path: '/', component: Layout, redirect: '/home', children: [{ path: 'home', component: Home }] }
+  {
+    path: '/',
+    component: Layout,
+    redirect: '/home',
+    children: [
+      { path: 'home', component: Home },
+      { path: 'user-info', component: UserInfo },
+      { path: 'user-avatar', component: userAvatar },
+      { path: 'user-pwd', component: userPwd }
+    ]
+  }
 ]
 
 const router = new VueRouter({

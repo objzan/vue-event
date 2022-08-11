@@ -39,7 +39,7 @@
 
         <!-- 导航菜单区域 -->
         <el-menu
-          default-active="/home"
+          :default-active="$route.path"
           class="el-menu-vertical-demo"
           background-color="#23262E"
           text-color="#fff"

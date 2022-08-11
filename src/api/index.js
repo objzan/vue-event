@@ -52,3 +52,49 @@ export const getMenuListAPI = () => {
     url: '/my/menus'
   })
 }
+
+/**
+ * 更新用户资料
+ * @param {*} param0 id, username, nickname, email, user_pic
+ * @returns Promise对象
+ */
+export const updateUserInfoAPI = ({ id, username, nickname, email, user_pic }) => {
+  return request({
+    url: '/my/userinfo',
+    method: 'PUT',
+    data: {
+      id,
+      username,
+      nickname,
+      email,
+      user_pic
+    }
+  })
+}
+
+/**
+ * 更新用户头像
+ * @param {*} avatar
+ * @returns Promise对象
+ */
+export const updateAvatarAPI = avatar => {
+  return request({
+    url: '/my/update/avatar',
+    method: 'PATCH',
+    data: {
+      avatar
+    }
+  })
+}
+
+export const updateUserPasswordAPI = ({ old_pwd, new_pwd, re_pwd }) => {
+  return request({
+    url: '/my/updatepwd',
+    method: 'PATCH',
+    data: {
+      old_pwd,
+      new_pwd,
+      re_pwd
+    }
+  })
+}
