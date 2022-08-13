@@ -12,7 +12,7 @@ if (isProduction) {
     vuex: 'Vuex',
     axios: 'axios',
     dayjs: 'dayjs',
-    'element-ui': 'ELEMENT',
+    'element-ui': 'ElementUI',
     'vue-quill-editor': 'VueQuillEditor',
     'vuex-persistedstate': 'createPersistedState'
   }
