@@ -87,6 +87,11 @@ export const updateAvatarAPI = avatar => {
   })
 }
 
+/**
+ * 修改密码
+ * @param {*} param0 old_pwd, new_pwd, re_pwd
+ * @returns Promise对象
+ */
 export const updateUserPasswordAPI = ({ old_pwd, new_pwd, re_pwd }) => {
   return request({
     url: '/my/updatepwd',
@@ -95,6 +100,125 @@ export const updateUserPasswordAPI = ({ old_pwd, new_pwd, re_pwd }) => {
       old_pwd,
       new_pwd,
       re_pwd
+    }
+  })
+}
+
+/**
+//  * 获取文章分类数据
+ * @returns Promise对象
+ */
+export const getArticleCateAPI = () => {
+  return request({
+    url: '/my/cate/list'
+  })
+}
+
+/**
+ * 添加文章分类
+ * @param {*} param0 cate_name, cate_alias
+ * @returns Promise对象
+ */
+export const addArticleCate = ({ cate_name, cate_alias }) => {
+  return request({
+    url: '/my/cate/add',
+    method: 'POST',
+    data: {
+      cate_name,
+      cate_alias
+    }
+  })
+}
+
+/**
+ * 更新文章分类
+ * @param {*} param0 id, cate_name, cate_alias
+ * @returns Promise对象
+ */
+export const updateArticleCateAPI = ({ id, cate_name, cate_alias }) => {
+  return request({
+    url: '/my/cate/info',
+    method: 'PUT',
+    data: {
+      id,
+      cate_name,
+      cate_alias
+    }
+  })
+}
+
+/**
+ * 删除文章分类
+ * @param {*} id
+ * @returns Promise对象
+ */
+export const deleteArticleCateAPI = id => {
+  return request({
+    url: '/my/cate/del',
+    method: 'DELETE',
+    params: {
+      id
+    }
+  })
+}
+
+/**
+ * 发表文章
+ * @param {*} fd 表单对象
+ * @returns promise对象
+ */
+export const pubArticleAPI = fd => {
+  return request({
+    url: '/my/article/add',
+    method: 'POST',
+    // 参数要的是表单对象, 不能写普通对象, axios内部会判断, 如果是表单对象, 传递的请求体会设置Content-Type: form-data与后端对应
+    data: fd
+  })
+}
+
+/**
+ * 获取文章列表
+ * @param {*} param0 pagenum, pagesize, cate_id, state
+ * @returns promise对象
+ */
+export const getArticleListAPI = ({ pagenum, pagesize, cate_id, state }) => {
+  return request({
+    url: '/my/article/list',
+    method: 'GET',
+    params: {
+      pagenum,
+      pagesize,
+      cate_id,
+      state
+    }
+  })
+}
+
+/**
+ * 获取文章详情
+ * @param {*} id
+ * @returns promise对象
+ */
+export const getArticleDetailAPI = id => {
+  return request({
+    url: '/my/article/info',
+    params: {
+      id
+    }
+  })
+}
+
+/**
+ * 删除文章
+ * @param {*} id
+ * @returns promise对象
+ */
+export const deleteArticleAPI = id => {
+  return request({
+    url: '/my/article/info',
+    method: 'DELETE',
+    params: {
+      id
     }
   })
 }

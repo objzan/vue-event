@@ -9,6 +9,8 @@ const Home = () => import('@/views/home')
 const UserInfo = () => import('@/views/user/userInfo.vue')
 const userAvatar = () => import('@/views/user/userAvatar.vue')
 const userPwd = () => import('@/views/user/userPwd.vue')
+const artCate = () => import('@/views/article/artCate.vue')
+const artList = () => import('@/views/article/artList.vue')
 
 Vue.use(VueRouter)
 
@@ -23,7 +25,9 @@ const routes = [
       { path: 'home', component: Home },
       { path: 'user-info', component: UserInfo },
       { path: 'user-avatar', component: userAvatar },
-      { path: 'user-pwd', component: userPwd }
+      { path: 'user-pwd', component: userPwd },
+      { path: 'art-cate', component: artCate },
+      { path: 'art-list', component: artList }
     ]
   }
 ]
