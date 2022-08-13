@@ -304,6 +304,12 @@ export default {
       const { data: res } = await deleteArticleAPI(id)
       if (res.code !== 0) return this.$message.error(res.message)
       this.$message.success(res.message)
+
+      if (this.articleList.length === 1) {
+        if (this.q.pagenum > 1) {
+          this.q.pagenum--
+        }
+      }
       this.getArticleList()
     }
   }
